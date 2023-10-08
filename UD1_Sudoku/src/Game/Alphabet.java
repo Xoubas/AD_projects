@@ -33,7 +33,7 @@ public class Alphabet {
 			break;
 		}
 		default: {
-			System.out.println("gei");
+			System.out.println("error");
 			break;
 		}
 		}
