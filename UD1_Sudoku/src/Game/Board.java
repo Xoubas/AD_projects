@@ -43,6 +43,7 @@ public class Board {
 		return box;
 	}
 
+	// isValid()
 	private boolean checkBox(char[][] box) {
 		boolean result = false;
 		for (int i = 0; i < grid.length; i++) {
@@ -77,15 +78,23 @@ public class Board {
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[0].length; j++) {
 				for (int k = 0; k < grid[0][0].length; k++) {
-					System.out.println(grid[i][j][k]);
+					if (k <= grid[0].length && j < grid[0][0].length)
+						System.out.print(grid[i][j][k] + " | ");
+
+					else if (k == grid[0].length-1 && j == grid[0][0].length-1)
+						System.out.print(grid[i][j][k] + "\n");
+					
+					else
+						System.out.print(grid[i][j][k] + " | ");
+
 				}
 			}
+			System.out.print("- - - - - - - - - - - - - - - - -\n");
 		}
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return super.toString();
 	}
 
