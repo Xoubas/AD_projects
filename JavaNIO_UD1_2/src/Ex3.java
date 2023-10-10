@@ -6,6 +6,13 @@ import java.nio.file.Paths;
 public class Ex3 {
 
 	public static void main(String[] args) {
+		/*
+		 * c) Crea un programa Java que recoja una ruta de archivo como entrada del
+		 * usuario (con JFileChooser) y muestre el nombre del archivo y su extensión en
+		 * una ventana emergente (JOptionPane). Crea un Path y recupera la posición a
+		 * partir del nombre del archivo (emplea el método lastIndexOf).
+		 */
+
 		// Crear un cuadro de diálogo para que el usuario seleccione un archivo
 		JFileChooser fileChooser = new JFileChooser();
 		int resultado = fileChooser.showOpenDialog(null);
