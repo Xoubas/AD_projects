@@ -3,11 +3,9 @@ package org.example;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -16,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static java.lang.System.*;
+import static java.nio.file.Path.*;
 
 public class Main {
     private String materia;
@@ -57,14 +56,6 @@ public class Main {
         this.participantes = participantes;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Materia: ").append(materia)
-                .append("\nFecha: ").append(fecha)
-                .append("\nParticipantes: ").append(participantes);
-        return sb.toString();
-    }
 
     public static void main(String[] args) {
 // Crear exame
@@ -76,16 +67,24 @@ public class Main {
                         "Carmen Conde",
                         "Claribel Alegría"));
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat(3).create();
-        gson.toJson(exame);
-        try {
-            Files.createFile(Paths.get("exame.json"));
-            Files.write
+        Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat("dd-MM-YYYY").create();
 
-        } catch (FileAlreadyExistsException e) {
-            e.printStackTrace();
-        }catch (IOException e) {
-            e.printStackTrace();
+        try {
+            if (Files.exists(Paths.get("exame.json"))) {
+                Files.delete(Paths.get("exame.json"));
+            } else {
+                Files.createFile(Paths.get("exame.json"));
+            }
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get("exame.json"));
+            gson.toJson(exame, writer);
+            //Always remember to close the stream
+            writer.close();
+
+            //Another option:
+            //Files.writeString(Paths.get("exame.json"), gson.toJson(exame));
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
