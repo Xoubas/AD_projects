@@ -1,0 +1,39 @@
+{
+  "equipos": [
+    {
+      "nome": "Obradoiro",
+      "vitorias": 23,
+      "derrotas": 1,
+      "puntosFavor": 2834,
+      "puntosEnContra": 1560
+    },
+    {
+      "nome": "FC Barcelona",
+      "vitorias": 22,
+      "derrotas": 2,
+      "puntosFavor": 1785,
+      "puntosEnContra": 1585
+    },
+    {
+      "nome": "Real Madrid",
+      "vitorias": 18,
+      "derrotas": 5,
+      "puntosFavor": 1920,
+      "puntosEnContra": 1695
+    },
+    {
+      "nome": "Manresa",
+      "vitorias": 15,
+      "derrotas": 7,
+      "puntosFavor": 1903,
+      "puntosEnContra": 1808
+    },
+    {
+      "nome": "Valencia",
+      "vitorias": 14,
+      "derrotas": 8,
+      "puntosFavor": 1834,
+      "puntosEnContra": 1760
+    }
+  ]
+}
