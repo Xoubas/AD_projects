@@ -12,10 +12,11 @@ import java.time.LocalDateTime;
 public class LocalDateTimeSerizalize implements JsonSerializer<LocalDateTime> {
 
     @Override
-    public JsonElement serialize(LocalDateTime fecha, Type typeOfSrc, JsonSerializationContext context) {
+    public JsonElement serialize(LocalDateTime fecha, Type type, JsonSerializationContext jsc) {
 
-        return new JsonPrimitive((fecha.getYear()) +
-                "-" + (fecha.getMonthValue()) + "-" + (fecha.getDayOfMonth()) +
-                (fecha.getHour()) + ":" + (fecha.getMinute()));
+        JsonPrimitive fechaStr = new JsonPrimitive(fecha.getYear() + "-" + fecha.getMonthValue() + "-"
+                + fecha.getDayOfMonth() + " " + fecha.getHour() + ":" + fecha.getMinute());
+
+        return fechaStr;
     }
 }

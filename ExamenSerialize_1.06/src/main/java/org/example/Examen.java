@@ -7,11 +7,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
@@ -118,19 +114,19 @@ public class Examen {
 
     private static Examen getExamenFromJSON(String nombreArchivo) {
 //        var gson = new Gson();
-        var gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new JsonDeserializer<LocalDateTime>() {
+        var gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDateTime.class, new JsonDeserializer<LocalDateTime>() {
                     @Override
                     public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 
                         LocalDateTime fecha = null;
                         String fechastr = json.getAsString();
                         System.out.println("Fecha: " + fechastr);
-//                        String[] campos = fechastr.split("[\\s:-]");
-//                        fecha= LocalDateTime.of(parseInt(campos[0]), parseInt(campos[1]), parseInt(campos[2]), parseInt(campos[3]), parseInt(campos[4]));
+                        String[] campos = fechastr.split("[\\s:-]");
+                        fecha = LocalDateTime.of(parseInt(campos[0]), parseInt(campos[1]), parseInt(campos[2]), parseInt(campos[3]), parseInt(campos[4]));
                         return fecha;
                     }
                 })
-                .create(); //yyyy-MM-dd'T'HH:mm:ss.SSSZ
+                .create(); //yyyy-MM-dd'T'HH:mm:ss
         try {
             String examenJSON = Files.readString(Path.of(nombreArchivo));
             return gson.fromJson(examenJSON, Examen.class);
