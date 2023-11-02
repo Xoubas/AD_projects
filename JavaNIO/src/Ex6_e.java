@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.EnumSet;
 import java.util.stream.Stream;
 
 /*
@@ -22,7 +21,7 @@ recorrido se hace en profundidad.
 public class Ex6_e {
     public static void walkDirectories(Path path) {
         if (Files.isDirectory(path) && Files.exists(path)) {
-            try (Stream<Path> files = Files.walk(path);) {
+            try (Stream<Path> files = Files.walk(path, FileVisitOption.FOLLOW_LINKS)) {
                 files.forEach(System.out::println);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -37,7 +36,7 @@ public class Ex6_e {
 
         if (result == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();
-            Ex6_c.walkDirectories(file.toPath());
+            Ex6_e.walkDirectories(file.toPath());
         }
     }
 }

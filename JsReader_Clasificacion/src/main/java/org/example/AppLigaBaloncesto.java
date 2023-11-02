@@ -66,8 +66,8 @@ Zunder Palencia	4	0	4	290	330	-40
 
 //        Clasificacion.saveClasificion(DEFAULT_ARCHIVO, clasificacion); // estático
 //
-////        System.out.println(clasificacion);
-////         Lectura
+//       System.out.println(clasificacion);
+//        Lectura
 //        Clasificacion c2 = Clasificacion.loadClasificacion(DEFAULT_ARCHIVO);
 //        System.out.println(c2);
 

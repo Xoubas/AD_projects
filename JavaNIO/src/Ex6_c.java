@@ -1,8 +1,5 @@
 import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.stream.Stream;
 
 /*
@@ -20,15 +17,15 @@ iii. Aplica un mapa obtener el nombre de los archivos.
 iv. Muestra los archivos recorriéndolos.
  */
 public class Ex6_c {
-    public static void walkDirectories(Path path) {
-        if (Files.isDirectory(path) && Files.exists(path)) {
-            try (Stream<Path> allFiles = Files.list(path)) {
-                allFiles.forEach(Ex6_c::walkDirectories);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+    public static void fileStream(File file) {
+        File[] files = file.listFiles();
+        assert files != null;
+        if (file.isDirectory() && file.exists()) {
+            Stream<File> directoryStream = Stream.of(files).filter(File::isDirectory);
+            directoryStream.forEach(f -> fileStream(f));
         } else {
-            System.out.println(path.getFileName().toString());
+            Stream<File> fileStream = Stream.of(files).filter(File::isFile);
+            fileStream.map(File::getName).forEach(System.out::println);
         }
     }
 
@@ -39,7 +36,7 @@ public class Ex6_c {
 
         if (result == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();
-            Ex6_c.walkDirectories(file.toPath());
+            Ex6_c.fileStream(file);
         }
     }
 }
