@@ -1,12 +1,19 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class CodigoPostal {
     private String cp;
     private String country;
     private String countryAbb;
-    private Lugar[] places;
+    private ArrayList<Lugar> places;
+
+    public CodigoPostal(String cp, String country, String countryAbb) {
+        this.cp = cp;
+        this.country = country;
+        this.countryAbb = countryAbb;
+    }
 
     public String getCp() {
         return cp;
@@ -43,5 +50,15 @@ public class CodigoPostal {
     @Override
     public int hashCode() {
         return Objects.hash(cp, country);
+    }
+
+    @Override
+    public String toString() {
+        return "CodigoPostal{" +
+                "cp='" + cp + '\'' +
+                ", country='" + country + '\'' +
+                ", countryAbb='" + countryAbb + '\'' +
+                ", places=" + places +
+                '}';
     }
 }

@@ -10,6 +10,14 @@ public class Lugar {
     private double latitude;
 
 
+    public Lugar(String placeName, double longitude, String state, String stateAbb, double latitude) {
+        this.placeName = placeName;
+        this.longitude = longitude;
+        this.state = state;
+        this.stateAbb = stateAbb;
+        this.latitude = latitude;
+    }
+
     public String getPlaceName() {
         return placeName;
     }
