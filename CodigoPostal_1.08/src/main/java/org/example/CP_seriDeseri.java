@@ -3,8 +3,9 @@ package org.example;
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 
-public class CPDeserializer implements JsonSerializer<CodigoPostal>, JsonDeserializer<CodigoPostal> {
+public class CP_seriDeseri implements JsonSerializer<CodigoPostal>, JsonDeserializer<CodigoPostal> {
     @Override
     public CodigoPostal deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
@@ -13,7 +14,7 @@ public class CPDeserializer implements JsonSerializer<CodigoPostal>, JsonDeseria
         String pais = jsonObject.get("country").getAsString();
         String abrebiaturaPais = jsonObject.get("country abbreviation").getAsString();
         JsonArray lugares = jsonObject.get("places").getAsJsonArray();
-        CodigoPostal cp = new CodigoPostal(codigoPostal, pais, abrebiaturaPais);
+        ArrayList<Lugar> todosLugares = new ArrayList<Lugar>();
 
         for (JsonElement lugar : lugares) {
             JsonObject obj = lugar.getAsJsonObject();
@@ -23,10 +24,10 @@ public class CPDeserializer implements JsonSerializer<CodigoPostal>, JsonDeseria
             String abrebiaturaEstado = obj.get("state abbreviation").getAsString();
             Double latitude = Double.parseDouble(obj.get("latitude").getAsString());
 
-
+            todosLugares.add(new Lugar(nome, longitude, estado, abrebiaturaEstado, latitude));
         }
 
-        //return new CodigoPostal(codigoPostal, pais, abrebiaturaPais);
+        return new CodigoPostal(codigoPostal, pais, abrebiaturaPais, todosLugares);
     }
 
     @Override

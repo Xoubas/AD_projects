@@ -1,0 +1,28 @@
+{
+  "cp": "32002",
+  "country": "Spain",
+  "countryAbb": "ES",
+  "lugars": [
+    {
+      "placeName": "Valenza",
+      "longitude": -7.85,
+      "state": "Galicia",
+      "stateAbb": "GA",
+      "latitude": 42.3333
+    },
+    {
+      "placeName": "Ourense",
+      "longitude": -7.85,
+      "state": "Galicia",
+      "stateAbb": "GA",
+      "latitude": 42.3333
+    },
+    {
+      "placeName": "Vilaescusa",
+      "longitude": -7.85,
+      "state": "Galicia",
+      "stateAbb": "GA",
+      "latitude": 42.3333
+    }
+  ]
+}

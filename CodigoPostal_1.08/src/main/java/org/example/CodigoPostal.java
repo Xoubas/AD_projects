@@ -7,12 +7,13 @@ public class CodigoPostal {
     private String cp;
     private String country;
     private String countryAbb;
-    private ArrayList<Lugar> places;
+    private ArrayList<Lugar> lugars;
 
-    public CodigoPostal(String cp, String country, String countryAbb) {
+    public CodigoPostal(String cp, String country, String countryAbb, ArrayList<Lugar> lugars) {
         this.cp = cp;
         this.country = country;
         this.countryAbb = countryAbb;
+        this.lugars = lugars;
     }
 
     public String getCp() {
@@ -58,7 +59,7 @@ public class CodigoPostal {
                 "cp='" + cp + '\'' +
                 ", country='" + country + '\'' +
                 ", countryAbb='" + countryAbb + '\'' +
-                ", places=" + places +
+                ", places=" + lugars +
                 '}';
     }
 }
