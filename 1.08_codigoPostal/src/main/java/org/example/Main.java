@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting()
                 .registerTypeAdapter(CodigoPostal.class, new CPDeserializer())
-                //.registerTypeAdapter(Lugar.class, LugarDeserializer)
+                .registerTypeAdapter(Lugar.class, LugarDeserializer)
                 .create();
 
         URL url = new URL("https://api.zippopotam.us/es" +

@@ -3,6 +3,7 @@ package org.example;
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class CPDeserializer implements JsonSerializer<CodigoPostal>, JsonDeserializer<CodigoPostal> {
     @Override
@@ -14,6 +15,7 @@ public class CPDeserializer implements JsonSerializer<CodigoPostal>, JsonDeseria
         String abrebiaturaPais = jsonObject.get("country abbreviation").getAsString();
         JsonArray lugares = jsonObject.get("places").getAsJsonArray();
         CodigoPostal cp = new CodigoPostal(codigoPostal, pais, abrebiaturaPais);
+        ArrayList<Lugar> al = new ArrayList<Lugar>();
 
         for (JsonElement lugar : lugares) {
             JsonObject obj = lugar.getAsJsonObject();
@@ -22,11 +24,11 @@ public class CPDeserializer implements JsonSerializer<CodigoPostal>, JsonDeseria
             String estado = obj.get("state").getAsString();
             String abrebiaturaEstado = obj.get("state abbreviation").getAsString();
             Double latitude = Double.parseDouble(obj.get("latitude").getAsString());
-
+            al.add(new Lugar(nome,))
 
         }
 
-        //return new CodigoPostal(codigoPostal, pais, abrebiaturaPais);
+        return new CodigoPostal(codigoPostal, pais, abrebiaturaPais);
     }
 
     @Override
