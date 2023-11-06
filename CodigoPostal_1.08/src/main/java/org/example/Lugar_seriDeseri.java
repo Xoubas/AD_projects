@@ -4,7 +4,7 @@ import com.google.gson.*;
 
 import java.lang.reflect.Type;
 
-public class LugarDeserializer implements JsonSerializer<Lugar>, JsonDeserializer<Lugar> {
+public class Lugar_seriDeseri implements JsonSerializer<Lugar>, JsonDeserializer<Lugar> {
     @Override
     public Lugar deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
