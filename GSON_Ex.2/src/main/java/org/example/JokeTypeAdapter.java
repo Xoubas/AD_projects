@@ -6,14 +6,14 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 
-public class ChisteTypeAdapter extends TypeAdapter<Chiste> {
+public class JokeTypeAdapter extends TypeAdapter<Joke> {
     @Override
-    public void write(JsonWriter out, Chiste value) throws IOException {
+    public void write(JsonWriter out, Joke value) throws IOException {
 
     }
 
     @Override
-    public Chiste read(JsonReader in) throws IOException {
+    public Joke read(JsonReader in) throws IOException {
         in.beginObject();
         while (in.hasNext()) {
             in.nextName();

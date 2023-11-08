@@ -2,9 +2,9 @@ package org.example;
 
 import java.util.List;
 
-public class Chiste {
+public class Joke {
     private boolean error;
-    private String category;
+    private List<Category> categories;
     private String type;
     private String setup;
     private String delivery;
@@ -13,9 +13,9 @@ public class Chiste {
     private int id;
     private String lang;
 
-    public Chiste(boolean error, String category, String type, String setup, String delivery, boolean safe, int id, String lang) {
+    public Joke(boolean error, List<Category> categories, String type, String setup, String delivery, boolean safe, int id, String lang) {
         this.error = error;
-        this.category = category;
+        this.categories = categories;
         this.type = type;
         this.setup = setup;
         this.delivery = delivery;
@@ -24,7 +24,7 @@ public class Chiste {
         this.lang = lang;
     }
 
-    public Chiste() {
+    public Joke() {
     }
 
     private boolean isError() {
@@ -35,12 +35,12 @@ public class Chiste {
         this.error = error;
     }
 
-    private String getCategory() {
-        return category;
+    private List<Category> getCategory() {
+        return categories;
     }
 
-    private void setCategory(String category) {
-        this.category = category;
+    private void setCategory(List<Category> categories) {
+        this.categories = categories;
     }
 
     private String getType() {
@@ -93,8 +93,8 @@ public class Chiste {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Chiste{" +
-                " Category: " + category + System.lineSeparator() +
+        StringBuilder sb = new StringBuilder("Joke{" +
+                " Category: " + categories + System.lineSeparator() +
                 " type: " + type + System.lineSeparator() +
                 " setup: " + setup + System.lineSeparator() +
                 " delivery: " + delivery + System.lineSeparator() +
