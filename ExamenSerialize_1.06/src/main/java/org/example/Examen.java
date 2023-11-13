@@ -62,6 +62,51 @@ public class Examen {
         return sb.toString();
     }
 
+    private static void showFile(String nombreArchivo) {
+        try {
+            String contenido = Files.readString(Path.of(nombreArchivo));
+            System.out.println("\nContenido del archivo "
+                    + nombreArchivo + " JSON:" + System.lineSeparator()
+                    + contenido);
+        } catch (IOException e) {
+            System.err.println("Error ES: " + e.getMessage());
+        }
+    }
+
+    private static void saveExamToJSON(Examen examen, String nombreArchivo) {
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerizalize())
+                .create(); //yyyy-MM-dd'T'HH:mm:ss.SSSZ
+
+        try (BufferedWriter bw = Files.newBufferedWriter(Path.of(nombreArchivo))) {
+            gson.toJson(examen, bw);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private static Examen getExamenFromJSON(String nombreArchivo) {
+//        var gson = new Gson();
+        var gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDateTime.class, new JsonDeserializer<LocalDateTime>() {
+                    @Override
+                    public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+                        LocalDateTime fecha = null;
+                        String fechastr = json.getAsString();
+                        System.out.println("Fecha: " + fechastr);
+                        String[] campos = fechastr.split("[\\s:-]");
+                        fecha = LocalDateTime.of(parseInt(campos[0]), parseInt(campos[1]), parseInt(campos[2]), parseInt(campos[3]), parseInt(campos[4]));
+                        return fecha;
+                    }
+                })
+                .create(); //yyyy-MM-dd'T'HH:mm:ss
+        try {
+            String examenJSON = Files.readString(Path.of(nombreArchivo));
+            return gson.fromJson(examenJSON, Examen.class);
+        } catch (IOException e) {
+            System.err.println("Error ES: " + e.getMessage());
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
 
         // Crear Examen
@@ -87,52 +132,6 @@ public class Examen {
         // Mostrar el Examen recuperado por pantalla
         System.out.println("\nExamen Recuperado:");
         System.out.println(exameFromJson);
-    }
-
-    private static void saveExamToJSON(Examen examen, String nombreArchivo) {
-        Gson gson = new GsonBuilder()
-                .setPrettyPrinting().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerizalize())
-                .create(); //yyyy-MM-dd'T'HH:mm:ss.SSSZ
-
-        try (BufferedWriter bw = Files.newBufferedWriter(Path.of(nombreArchivo))) {
-            gson.toJson(examen, bw);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static void showFile(String nombreArchivo) {
-        try {
-            String contenido = Files.readString(Path.of(nombreArchivo));
-            System.out.println("\nContenido del archivo "
-                    + nombreArchivo + " JSON:" + System.lineSeparator()
-                    + contenido);
-        } catch (IOException e) {
-            System.err.println("Error ES: " + e.getMessage());
-        }
-    }
-
-    private static Examen getExamenFromJSON(String nombreArchivo) {
-//        var gson = new Gson();
-        var gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDateTime.class, new JsonDeserializer<LocalDateTime>() {
-                    @Override
-                    public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-
-                        LocalDateTime fecha = null;
-                        String fechastr = json.getAsString();
-                        System.out.println("Fecha: " + fechastr);
-                        String[] campos = fechastr.split("[\\s:-]");
-                        fecha = LocalDateTime.of(parseInt(campos[0]), parseInt(campos[1]), parseInt(campos[2]), parseInt(campos[3]), parseInt(campos[4]));
-                        return fecha;
-                    }
-                })
-                .create(); //yyyy-MM-dd'T'HH:mm:ss
-        try {
-            String examenJSON = Files.readString(Path.of(nombreArchivo));
-            return gson.fromJson(examenJSON, Examen.class);
-        } catch (IOException e) {
-            System.err.println("Error ES: " + e.getMessage());
-        }
-        return null;
+        showFile("accesoADatos.json");
     }
 }

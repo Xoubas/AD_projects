@@ -11,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Main implements Serializable {
+public class Main {
     public static void writeJson(CodigoPostal cp) throws IOException {
         var gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedWriter bw = null;
