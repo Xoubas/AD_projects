@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- *
  * @author pepecalo
  */
 public class Equipo implements Comparable<Equipo>, Serializable {
@@ -27,7 +26,7 @@ public class Equipo implements Comparable<Equipo>, Serializable {
     }
 
     public Equipo(String nome, int vitorias, int derrotas, int puntosFavor,
-            int puntosEnContra) {
+                  int puntosEnContra) {
         this.nome = nome;
         this.vitorias = vitorias;
         this.derrotas = derrotas;
@@ -99,15 +98,8 @@ public class Equipo implements Comparable<Equipo>, Serializable {
         if (equipo == null) {
             throw new IllegalArgumentException("Non podes pasar nulos");
         }
-        if (equipo.getNome().equalsIgnoreCase(nome)) {
-            return 0;
-        }
-        if (equipo.getVitorias() == vitorias) {
-            return equipo.getDiferenciaPuntos() - getDiferenciaPuntos();
-        }
-        return equipo.getVitorias() - vitorias;
-//        // Ordenación por nombre:
-//        return nome.compareToIgnoreCase(equipo.getNome());
+        //return (puntosFavor > equipo.puntosFavor) ? 1 : ((puntosFavor == equipo.puntosFavor) ? 0 : -1);
+        return Integer.compare(puntosFavor, equipo.puntosFavor);
     }
 
     @Override

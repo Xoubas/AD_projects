@@ -5,29 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ff00fbc-4b5b-4689-85a9-0f2f0be58193" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../01.01_Json/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01.01_Json/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01.01_Json/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01.01_Json/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01.01_Json/Json_1_01.01.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01.01_Json/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/CP.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/src/main/java/org/example/CPDeserializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/src/main/java/org/example/CPTypeAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/src/main/java/org/example/CodigoPostal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/src/main/java/org/example/Lugar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/src/main/java/org/example/LugarDeserializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1.08_codigoPostal/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodigoPostal_1.08/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodigoPostal_1.08/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JsReader_1.07/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JsReader_1.07/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChisteAPI/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChisteAPI/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaNIO/src/Ex1_c.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaNIO/src/Ex1_c.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaNIO/src/Ex2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaNIO/src/Ex2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsReader_Clasificacion/src/main/java/org/example/ClasificacionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JsReader_Clasificacion/src/main/java/org/example/ClasificacionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsReader_Clasificacion/src/main/java/org/example/Equipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JsReader_Clasificacion/src/main/java/org/example/Equipo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,15 +35,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/stx/Documents/AD/AD_projects/JSON_reader_1.07",
-    "onboarding.tips.debug.path": "/home/stx/IdeaProjects/JSON_reader_1.07/src/main/java/org/example/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/stx/Documents/AD/AD_projects/JsReader_1.07&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/stx/IdeaProjects/JSON_reader_1.07/src/main/java/org/example/Main.java&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -81,7 +81,6 @@ public class ClasificacionDAO implements Serializable {
         }
         return null;
     }
-
     public Clasificacion getFromJson() {
         return getFromJson(JSON_FILE);
     }
