@@ -1,10 +1,10 @@
-package org.example;
+package modelo;
 
 import java.util.List;
 
 public class Joke {
     private boolean error;
-    private List<Category> categories;
+    private Category category;
     private String type;
     private String setup;
     private String delivery;
@@ -13,9 +13,9 @@ public class Joke {
     private int id;
     private String lang;
 
-    public Joke(boolean error, List<Category> categories, String type, String setup, String delivery, boolean safe, int id, String lang) {
+    public Joke(boolean error, Category category, String type, String setup, String delivery, boolean safe, int id, String lang) {
         this.error = error;
-        this.categories = categories;
+        this.category = category;
         this.type = type;
         this.setup = setup;
         this.delivery = delivery;
@@ -27,74 +27,82 @@ public class Joke {
     public Joke() {
     }
 
-    private boolean isError() {
+    public boolean isError() {
         return error;
     }
 
-    private void setError(boolean error) {
+    public void setError(boolean error) {
         this.error = error;
     }
 
-    private List<Category> getCategory() {
-        return categories;
+    public Category getCategory() {
+        return category;
     }
 
-    private void setCategory(List<Category> categories) {
-        this.categories = categories;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
-    private String getType() {
+    public String getType() {
         return type;
     }
 
-    private void setType(String type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    private String getSetup() {
+    public String getSetup() {
         return setup;
     }
 
-    private void setSetup(String setup) {
+    public void setSetup(String setup) {
         this.setup = setup;
     }
 
-    private String getDelivery() {
+    public String getDelivery() {
         return delivery;
     }
 
-    private void setDelivery(String delivery) {
+    public void setDelivery(String delivery) {
         this.delivery = delivery;
     }
 
-    private boolean isSafe() {
+    public List<Flag> getFlags() {
+        return flags;
+    }
+
+    public void setFlags(List<Flag> flags) {
+        this.flags = flags;
+    }
+
+    public boolean isSafe() {
         return safe;
     }
 
-    private void setSafe(boolean safe) {
+    public void setSafe(boolean safe) {
         this.safe = safe;
     }
 
-    private int getId() {
+    public int getId() {
         return id;
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    private String getLang() {
+    public String getLang() {
         return lang;
     }
 
-    private void setLang(String lang) {
+    public void setLang(String lang) {
         this.lang = lang;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Joke{" +
-                " Category: " + categories + System.lineSeparator() +
+                " Category: " + category + System.lineSeparator() +
                 " type: " + type + System.lineSeparator() +
                 " setup: " + setup + System.lineSeparator() +
                 " delivery: " + delivery + System.lineSeparator() +

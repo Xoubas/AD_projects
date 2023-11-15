@@ -1,4 +1,4 @@
-package org.example;
+package modelo;
 
 import controller.Controller;
 import vista.MainFrame;

@@ -11,14 +11,7 @@ import java.nio.file.Paths;
 public class ClasificacionDAO implements Serializable {
     private static final String OBJECT_FILE = "clasificacion.dat";
     private static final String JSON_FILE = "clasificacion.json";
-
-    /**
-     * Versión estática que recoge archivo y objeto a guardar.
-     *
-     * @param archivo nombre del archivo.
-     * @param c       Objeto de tipo Clasificación a guardar.
-     * @return
-     */
+    
     public static boolean saveToObject(String archivo, Clasificacion c) {
         try (ObjectOutputStream oos = new ObjectOutputStream(
                 new BufferedOutputStream(new FileOutputStream(archivo)));) {

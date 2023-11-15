@@ -24,7 +24,6 @@ public class Ex6_a {
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int result = chooser.showOpenDialog(null);
 
-
         if (result == JFileChooser.APPROVE_OPTION) {
             Path file = chooser.getSelectedFile().toPath();
 

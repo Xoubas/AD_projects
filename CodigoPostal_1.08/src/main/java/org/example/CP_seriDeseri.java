@@ -32,6 +32,9 @@ public class CP_seriDeseri implements JsonSerializer<CodigoPostal>, JsonDeserial
 
     @Override
     public JsonElement serialize(CodigoPostal src, Type typeOfSrc, JsonSerializationContext context) {
+        JsonObject jo = new JsonObject();
+
+        jo.addProperty("post code",);
         return null;
     }
 }

@@ -19,8 +19,12 @@ public class Ex6_b {
         if (file.isDirectory()) {
             File[] fa = file.listFiles();
             if (fa != null) {
-                for (File f : fa)
+                for (File f : fa){
+                    if(f.isDirectory())
                     allFiles.addAll(walkDirectories(f));
+                    else
+                    allFiles.add(f.getName());
+                }
             }
         } else {
             allFiles.add(file.getName());

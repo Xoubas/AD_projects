@@ -34,7 +34,7 @@ public class Ex1_c {
     // Método para obtener la extensión de un archivo a partir del nombre
     private static String obtenerExtension(String nombreArchivo) {
         int lastIndex = nombreArchivo.lastIndexOf(".");
-        if (lastIndex > 0 && lastIndex < nombreArchivo.length() - 1) {
+        if (lastIndex != -1) {
             return nombreArchivo.substring(lastIndex + 1);
         }
         return "Sin extensión";

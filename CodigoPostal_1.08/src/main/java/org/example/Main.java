@@ -13,7 +13,10 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void writeJson(CodigoPostal cp) throws IOException {
-        var gson = new GsonBuilder().setPrettyPrinting().create();
+        var gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(CodigoPostal.class, new CP_seriDeseri())
+                .create();
         BufferedWriter bw = null;
         try {
             bw = Files.newBufferedWriter(Paths.get("CP.json"));

@@ -11,13 +11,13 @@ public class Ex3 {
     archivos fuente Java, no los directorios que contiene. Recuerda el uso de filtros en
     Stream y de forEach.
      */
-    public static void showFiles(Path directory) {
-        if (!Files.isDirectory(directory) && directory.getFileName().toString().endsWith(".java")) {
-            System.out.println(directory.toString());
-        } else if (Files.isDirectory(directory)) {
+    public static void showFiles(Path path) {
+        if (!Files.isDirectory(path) && path.getFileName().endsWith(".java")) {
+            System.out.println(path.toString());
+        } else if (Files.isDirectory(path)) {
             Stream<Path> paths = null;
             try {
-                paths = Files.list(directory);
+                paths = Files.list(path);
                 //Same as p->showFiles(p);
                 paths.forEach(Ex3::showFiles);
             } catch (IOException e) {
