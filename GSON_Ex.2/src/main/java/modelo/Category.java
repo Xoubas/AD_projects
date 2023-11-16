@@ -1,9 +1,9 @@
 package modelo;
 
 public enum Category {
-    PROGRAMMING("programming"), MISC("misc"),
-    DARK("dark"), PUN("pun"), SPOOKY("spooky"),
-    CHRISTMAS("christmas");
+    PROGRAMMING("Programming"), MISC("Misc"),
+    DARK("Dark"), PUN("Pun"), SPOOKY("Spooky"),
+    CHRISTMAS("Christmas");
 
 
     private String name;

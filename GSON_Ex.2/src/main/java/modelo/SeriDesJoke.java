@@ -31,7 +31,7 @@ public class SeriDesJoke implements JsonSerializer<Joke>, JsonDeserializer<Joke>
         int id = jo.get("id").getAsInt();
         String lang = jo.get("lang").getAsString();
 
-        return new Joke()
+        return new Joke();
     }
 
     @Override
