@@ -30,9 +30,13 @@ public class JokeTypeAdapter extends TypeAdapter<Joke> {
 
     private void writeFlags(JsonWriter writer, List<Flag> list) throws IOException {
         writer.beginObject();
-        for (Flag flag : list) {
-            writer.name(flag.name()).value(true);
-        }
+        writer.name("nsfw").value(list.contains(Flag.NSFW));
+        writer.name("religious").value(list.contains(Flag.RELIGIOUS));
+        writer.name("political").value(list.contains(Flag.POLITICAL));
+        writer.name("racist").value(list.contains(Flag.RACIST));
+        writer.name("sexist").value(list.contains(Flag.SEXIST));
+        writer.name("explicit").value(list.contains(Flag.EXPLICIT));
+        writer.endObject();
     }
 
     @Override

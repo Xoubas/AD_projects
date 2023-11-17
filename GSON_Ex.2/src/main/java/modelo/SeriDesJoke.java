@@ -12,7 +12,7 @@ public class SeriDesJoke implements JsonSerializer<Joke>, JsonDeserializer<Joke>
         Boolean error = jo.get("error").getAsBoolean();
         String cat = jo.get("category").getAsString();
         if (cat.equals("Misc")) {
-            cat = "misc";
+            cat = "miscellaneous";
         }
         Category category = Category.valueOf(cat);
         String type = jo.get("type").getAsString();
