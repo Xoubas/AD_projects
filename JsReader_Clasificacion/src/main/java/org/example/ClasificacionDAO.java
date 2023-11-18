@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 public class ClasificacionDAO implements Serializable {
     private static final String OBJECT_FILE = "clasificacion.dat";
     private static final String JSON_FILE = "clasificacion.json";
-    
+
     public static boolean saveToObject(String archivo, Clasificacion c) {
         try (ObjectOutputStream oos = new ObjectOutputStream(
                 new BufferedOutputStream(new FileOutputStream(archivo)));) {
@@ -37,6 +37,7 @@ public class ClasificacionDAO implements Serializable {
     public void saveToJson(Clasificacion clasificacion) {
         saveToJson(JSON_FILE, clasificacion);
     }
+
     public Clasificacion getFromObject() throws IOException {
         ObjectInputStream ois = null;
         if (Files.exists(Paths.get(OBJECT_FILE))) {
@@ -65,6 +66,7 @@ public class ClasificacionDAO implements Serializable {
     public Clasificacion getFromJson(String file) {
         if (Files.exists(Path.of(file))) {
             try {
+//                BufferedReader json = new BufferedReader(new FileReader(file));
                 String json = Files.readString(Path.of(file));
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                 return gson.fromJson(json, Clasificacion.class);
@@ -74,6 +76,7 @@ public class ClasificacionDAO implements Serializable {
         }
         return null;
     }
+
     public Clasificacion getFromJson() {
         return getFromJson(JSON_FILE);
     }
