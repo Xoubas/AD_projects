@@ -36,6 +36,8 @@ public class SeriDesJoke implements JsonSerializer<Joke>, JsonDeserializer<Joke>
 
     @Override
     public JsonElement serialize(Joke src, Type typeOfSrc, JsonSerializationContext context) {
+        JsonElement error = src.isError().getAs;
+
         return null;
     }
 }

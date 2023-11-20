@@ -13,6 +13,8 @@ public class LocalDateTimeSerizalize implements JsonSerializer<LocalDateTime> {
         JsonPrimitive fechaStr = new JsonPrimitive(fecha.getYear() + "-" + fecha.getMonthValue() + "-"
                 + fecha.getDayOfMonth() + " " + fecha.getHour() + ":" + fecha.getMinute());
 
+        Json
+
         return fechaStr;
     }
 }
