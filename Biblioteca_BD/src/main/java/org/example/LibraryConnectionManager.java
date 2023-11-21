@@ -1,20 +1,37 @@
 package org.example;
 
-public class LibraryConnectionManager {
-    private static volatile LibraryConnectionManager connection;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-    // Código Java para crear una clase singleton mediante
-// "Inicialización Ansiosa"
-//    public class ClaseSingletonAD {
-//        // instancia pública inicializada al cargar la clase
-//        private static final ClaseSingletonAD instance = new ClaseSingletonAD();
-//
-//        private ClaseSingletonAD() {
-//            // constructor privado
-//        }
-//
-//        public static ClaseSingletonAD getInstance(){
-//            return instance;
-//        }
-//    }
+public class LibraryConnectionManager {
+    private static volatile LibraryConnectionManager instance;
+    private Connection connection;
+
+    private LibraryConnectionManager() {
+    }
+
+    public static LibraryConnectionManager getInstance() {
+        if (instance == null) {
+            synchronized (LibraryConnectionManager.class) {
+                if (instance == null) {
+                    instance = new LibraryConnectionManager();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public Connection getConnection() {
+        try {
+           connection =  DriverManager.getConnection("jdbc:h2:/home/sanclemente.local/a21javierbq/Escritorio/library");
+//            String user = "admin";
+//            String password = "abc123.";
+//            String databaseURL = "jdbc:h2:/home/sanclemente.local/a21javierbq/Documentos/AD/AD_projects/Bases de datos/Biblioteca";
+//            DriverManager.getConnection(databaseURL, user, password);
+        } catch (SQLException e) {
+            System.err.println("Error getting connection" + e.getMessage());
+        }
+        return connection;
+    }
 }
