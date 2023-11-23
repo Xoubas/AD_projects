@@ -1,11 +1,13 @@
 package org.example;
 
-public class Book {
-    private int idBook;
+import java.io.Serializable;
+
+public class Book implements Serializable {
+    private Long idBook;
     private String isbn;
-    private String titulo;
-    private String autor;
-    private int anho;
-    private boolean disponible;
-    private byte[] portada;
+    private String title;
+    private String author;
+    private Integer year;
+    private Boolean available;
+    private byte[] cover;
 }

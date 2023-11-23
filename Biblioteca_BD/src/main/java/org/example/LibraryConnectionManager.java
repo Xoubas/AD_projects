@@ -24,7 +24,7 @@ public class LibraryConnectionManager {
 
     public Connection getConnection() {
         try {
-           connection =  DriverManager.getConnection("jdbc:h2:/home/sanclemente.local/a21javierbq/Escritorio/library");
+           connection =  DriverManager.getConnection("jdbc:h2:/home/sanclemente.local/a21javierbq/Documentos/AD/AD_projects/Bases de datos/Biblioteca?user=admin");
 //            String user = "admin";
 //            String password = "abc123.";
 //            String databaseURL = "jdbc:h2:/home/sanclemente.local/a21javierbq/Documentos/AD/AD_projects/Bases de datos/Biblioteca";
