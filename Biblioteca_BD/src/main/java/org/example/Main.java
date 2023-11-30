@@ -1,9 +1,6 @@
 package org.example;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Main {
@@ -18,17 +15,30 @@ public class Main {
         }
 
         Scanner sc = new Scanner(System.in);
+
+        DatabaseMetaData estructura = con.getMetaData();
+
+        try (ResultSet rs = estructura.getTables(null, null, null, new String[]{"TABLE"})) {
+            while (rs.next()) {
+                System.out.println(rs.getString("TABLE_NAME"));
+            }
+        }
+
+
         System.out.println("Introduce un titulo: ");
         String titulo = sc.nextLine();
 
-        if (con != null) {
-            try (Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
-                ResultSet rs = st.executeQuery("SELECT * FROM Book WHERE title LIKE '%" + titulo + "%'");
+        if (con != null && !con.isClosed()) {
+
+
+            try (PreparedStatement
+                         st = con.prepareStatement("Select idBook, titulo FROM Book")) {
+                ResultSet rs = st.executeQuery();
 
                 if (rs.next()) {
-                    System.out.println(rs.getString("idBook") + "" + rs.getString("title"));
+                    System.out.println(rs.getString("idBook") + "" + rs.getString("titulo"));
                     while (rs.next()) {
-                        System.out.println(rs.getString("idBook") + "" + rs.getString("title"));
+                        System.out.println(rs.getString("idBook") + "" + rs.getString("titulo"));
                     }
                     rs.absolute(1);
                     rs.next();
