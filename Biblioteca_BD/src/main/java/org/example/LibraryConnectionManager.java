@@ -24,13 +24,15 @@ public class LibraryConnectionManager {
 
     public Connection getConnection() {
         try {
-            connection = DriverManager.getConnection("jdbc:h2:/home/sanclemente.local/a21javierbq/Escritorio/Bases de datos/biblioteca;DATABASE_TO_UPPER=false");
-//            String user = "admin";
-//            String password = "abc123.";
-//            String databaseURL = "jdbc:h2:/home/sanclemente.local/a21javierbq/Documentos/AD/AD_projects/Bases de datos/Biblioteca";
-//            DriverManager.getConnection(databaseURL, user, password);
+            //connection = DriverManager.getConnection("jdbc:h2:/home/stx/Databases/Library?user=admin&password=admin;DATABASE_TO_UPPER=false");
+            String user = "admin";
+            String password = "admin";
+            String databaseURL = "jdbc:h2:/home/stx/Databases/Library;DATABASE_TO_UPPER=false";
+            connection = DriverManager.getConnection(databaseURL, user, password);
         } catch (SQLException e) {
-            System.err.println("Error getting connection" + e.getMessage());
+            System.err.println("Error getting connection" + e.getCause());
+//            System.err.println("Error getting connection" + e.getMessage());
+//            System.err.println("Error getting connection" + e.getErrorCode());
         }
         return connection;
     }
