@@ -1,0 +1,15 @@
+
+J
+java:S2699
+"-Add at least one assertion to this test case.(İü²ó8ÌÁúÂÎ1
+I
+java:S2699"-Add at least one assertion to this test case.(Ù˜Î8±Î†ÃÎ1
+£
+java:S3577"…Rename class "Probas" to match the regular expression: '^((Test|IT)[a-zA-Z0-9_]+|[A-Z][a-zA-Z0-9_]*(Test|Tests|TestCase|IT|ITCase))$'(›†æÿ8ÍÁúÂÎ1
+;
+java:S5786
+"Remove this 'public' modifier.(İü²ó8ÍÁúÂÎ1
+:
+java:S5786"Remove this 'public' modifier.(Ù˜Î8ÍÁúÂÎ1
+;
+java:S5786"Remove this 'public' modifier.(›†æÿ8ÍÁúÂÎ1
