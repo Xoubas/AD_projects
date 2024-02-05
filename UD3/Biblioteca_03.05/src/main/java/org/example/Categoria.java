@@ -1,18 +1,16 @@
 package org.example;
 
 public enum Categoria {
-    NOVELA("Novela"),
-    POESIA("Poesia"),
-    ENSAYO("Ensayo"),
-    TEATRO("Teatro"),
-    OTROS("Otros");
-    private String nombre;
+    NOVELA,
+    POESIA,
+    ENSAYO,
+    TEATRO,
+    OTROS;
 
-    private Categoria(String nombre) {
-        this.nombre = nombre;
+    private Categoria() {
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getFirstLetters() {
+        return this.name().toUpperCase().substring(0, 1) + this.name().toLowerCase().substring(1);
     }
 }

@@ -26,8 +26,9 @@ public class Book implements Serializable {
     private Integer anho;
     private Boolean disponible;
     private byte[] portada;
-    @Enumerated(EnumType.STRING)
-    private Categoria categoria;
+    @Convert(converter = CategoriaConverter.class)
+//    @Enumerated(EnumType.STRING)
+    private String categoria;
 
     private static final long serialVersionUID = 1L;
 
