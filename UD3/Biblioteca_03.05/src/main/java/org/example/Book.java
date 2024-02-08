@@ -10,10 +10,18 @@ import jakarta.persistence.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.*;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+<<<<<<< HEAD
+=======
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
+import java.util.Arrays;
+>>>>>>> d5fc30b68f21e9a98bf29b80a88c5d2c7845e0fb
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -23,13 +31,22 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
     private Integer idBook;
+    @Column(unique = true, length = 13, nullable = false)
     private String isbn;
+    @Transient
+    private String isbn10;
     private String titulo;
     private String autor;
     @Temporal(TemporalType.DATE)
+<<<<<<< HEAD
     private Calendar publicationDate;
     @Transient
     private LocalDate diasPublicacion;
+=======
+    private Calendar fechaDePublicacion;
+    @Transient
+    private int diasPublicacion;
+>>>>>>> d5fc30b68f21e9a98bf29b80a88c5d2c7845e0fb
     private Boolean disponible;
     private byte[] portada;
     @Convert(converter = CategoriaConverter.class)
@@ -41,41 +58,71 @@ public class Book implements Serializable {
     public Book() {
     }
 
-    public Book(String titulo, String autor, Integer year, Boolean disponible) {
+    public Book(String titulo, String autor, Calendar fechaDePublicacion, Boolean disponible) {
         this.titulo = titulo;
         this.autor = autor;
-        this.anho = year;
+        this.fechaDePublicacion = fechaDePublicacion;
         this.disponible = disponible;
+        diasPublicacion = calcularDiasPublicacion(fechaDePublicacion);
     }
 
-    public Book(String isbn, String titulo, String autor, Integer year,
+    public Book(String isbn, String titulo, String autor, Calendar fechaDePublicacion,
                 Boolean disponible) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
-        this.anho = year;
+        this.fechaDePublicacion = fechaDePublicacion;
         this.disponible = disponible;
+        diasPublicacion = calcularDiasPublicacion(fechaDePublicacion);
     }
 
-    public Book(String isbn, String titulo, String autor, Integer year,
+    public Book(String isbn, String titulo, String autor, Calendar fechaDePublicacion,
                 Boolean disponible, byte[] portada) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
-        this.anho = year;
+        this.fechaDePublicacion = fechaDePublicacion;
         this.disponible = disponible;
         this.portada = portada;
+        diasPublicacion = calcularDiasPublicacion(fechaDePublicacion);
     }
 
     public Book(Integer idBook, String isbn, String titulo, String autor,
-                Integer year, Boolean disponible, byte[] portada) {
+                Calendar fechaDePublicacion, Boolean disponible, byte[] portada) {
         this.idBook = idBook;
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
-        this.anho = year;
+        this.fechaDePublicacion = fechaDePublicacion;
         this.disponible = disponible;
         this.portada = portada;
+        diasPublicacion = calcularDiasPublicacion(fechaDePublicacion);
+    }
+
+    private int calcularDiasPublicacion(Calendar fechaDePublicacion) {
+        LocalDate today = LocalDate.now();
+        if (fechaDePublicacion != null) {
+            LocalDate publicacion = fechaDePublicacion.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            return (int) publicacion.until(today, ChronoUnit.DAYS);
+        }
+        return 0;
+    }
+
+    private String changeToIsbn10(String isbn13) {
+        String isbn10 = isbn13.substring(3, isbn13.length() - 1);
+        char[] isbnArray = isbn10.toCharArray();
+        int n = 2;
+        BigInteger newIsbn = BigInteger.ZERO;
+        for (char c : isbnArray) {
+            newIsbn = newIsbn.add(BigInteger.valueOf(Character.getNumericValue(c) * n));
+            n++;
+        }
+        controlDigit(newIsbn);
+        return null;
+    }
+
+    private BigInteger controlDigit(BigInteger isbn){
+        return isbn.mod(BigInteger.valueOf(11));
     }
 
     public Integer getIdBook() {
@@ -114,12 +161,12 @@ public class Book implements Serializable {
         return this;
     }
 
-    public Integer getYear() {
-        return anho;
+    public Calendar getPublicationDate() {
+        return fechaDePublicacion;
     }
 
-    public Book setAnho(Integer anho) {
-        this.anho = anho;
+    public Book setPublicationDate(Calendar fechaDePublicacion) {
+        this.fechaDePublicacion = fechaDePublicacion;
         return this;
     }
 
@@ -214,8 +261,16 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        return idBook + "] [isbn: " + isbn + "] " + titulo + ". "
-                + autor + " (" + anho + ") [" + ((disponible) ? '*' : ' ') + ']';
+        return "Book{" +
+                "idBook=" + idBook +
+                ", isbn='" + isbn + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", fechaDePublicacion=" + fechaDePublicacion +
+                ", diasPublicacion=" + diasPublicacion +
+                ", disponible=" + disponible +
+                ", portada=" + Arrays.toString(portada) +
+                ", categoria='" + categoria + '\'' +
+                '}';
     }
-
 }
