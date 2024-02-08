@@ -13,17 +13,23 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Objects;
 
 @Entity
 public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Integer idBook;
     private String isbn;
     private String titulo;
     private String autor;
-    private Integer anho;
+    @Temporal(TemporalType.DATE)
+    private Calendar publicationDate;
+    @Transient
+    private LocalDate diasPublicacion;
     private Boolean disponible;
     private byte[] portada;
     @Convert(converter = CategoriaConverter.class)
