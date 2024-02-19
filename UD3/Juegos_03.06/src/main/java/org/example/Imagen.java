@@ -1,9 +1,14 @@
 package org.example;
 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 import java.sql.Blob;
 
 public class Imagen {
     private int idImagen;
+    @ManyToOne
+    @JoinColumn(name = "id_juego")
     private int idJuego;
     private String url;
     private Blob imagen;

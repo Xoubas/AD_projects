@@ -1,16 +1,19 @@
 package org.example;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Juego {
+    @Id
     private int idJuego;
-    @OneToOne
-    @Column(name = "id_genero")
+    @ManyToOne
+    @JoinColumn(name = "idGenero")
     private Genero genero;
+    @ManyToOne
+    @JoinColumn(name="idPlataforma")
+    private Plataforma plataforma;
     private int idPlataforma;
     private String titulo;
     private String miniatura;
@@ -20,20 +23,7 @@ public class Juego {
     private String editor;
     private String desarrollador;
     private LocalDate fecha;
+    @OneToMany(mappedBy = "juego")
+    private List<Imagen> imagenes;
 
-    public String getDesarrollador() {
-        return desarrollador;
-    }
-
-    public void setDesarrollador(String desarrollador) {
-        this.desarrollador = desarrollador;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
 }

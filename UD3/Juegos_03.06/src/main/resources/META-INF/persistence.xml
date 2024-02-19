@@ -20,7 +20,7 @@
         <properties>
             <!-- Configuración de conexión a base de datos. H2 en memoria. -->
             <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:/home/stx/Desktop/Databases/Biblioteca;DATABASE_TO_UPPER=FALSE;FILE_LOCK=NO;DB_CLOSE_DELAY=-1" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:jdbc:h2:/home/sanclemente.local/a21javierbq/Escritorio/Juegos;DATABASE_TO_UPPER=FALSE;FILE_LOCK=NO;DB_CLOSE_DELAY=-1" />
             <!--            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:db1;DB_CLOSE_DELAY=-1" />-->
             <property name="jakarta.persistence.jdbc.user" value="admin" />
             <property name="jakarta.persistence.jdbc.password" value="admin" />
