@@ -15,13 +15,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
-<<<<<<< HEAD
-=======
+
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.Arrays;
->>>>>>> d5fc30b68f21e9a98bf29b80a88c5d2c7845e0fb
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -38,15 +35,10 @@ public class Book implements Serializable {
     private String titulo;
     private String autor;
     @Temporal(TemporalType.DATE)
-<<<<<<< HEAD
     private Calendar publicationDate;
-    @Transient
-    private LocalDate diasPublicacion;
-=======
     private Calendar fechaDePublicacion;
     @Transient
     private int diasPublicacion;
->>>>>>> d5fc30b68f21e9a98bf29b80a88c5d2c7845e0fb
     private Boolean disponible;
     private byte[] portada;
     @Convert(converter = CategoriaConverter.class)

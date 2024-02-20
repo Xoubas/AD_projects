@@ -25,5 +25,4 @@ public class Juego {
     private LocalDate fecha;
     @OneToMany(mappedBy = "juego")
     private List<Imagen> imagenes;
-
 }
