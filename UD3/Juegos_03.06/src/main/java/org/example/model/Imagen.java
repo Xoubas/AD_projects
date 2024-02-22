@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;

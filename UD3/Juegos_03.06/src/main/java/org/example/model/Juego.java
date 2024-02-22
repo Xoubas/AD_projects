@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 import jakarta.persistence.*;
 
@@ -23,6 +23,7 @@ public class Juego {
     private String editor;
     private String desarrollador;
     private LocalDate fecha;
+
     @OneToMany(mappedBy = "juego")
     private List<Imagen> imagenes;
 }

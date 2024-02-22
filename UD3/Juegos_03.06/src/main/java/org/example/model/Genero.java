@@ -1,12 +1,12 @@
-package org.example;
+package org.example.model;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-public class Plataforma {
+public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String plataforma;
+    private String idGenero;
     private String nombre;
 }
