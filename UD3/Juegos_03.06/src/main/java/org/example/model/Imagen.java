@@ -9,7 +9,7 @@ public class Imagen {
     private int idImagen;
     @ManyToOne
     @JoinColumn(name = "id_juego")
-    private int idJuego;
+    private Juego juego;
     private String url;
     private Blob imagen;
 
@@ -21,12 +21,12 @@ public class Imagen {
         this.idImagen = idImagen;
     }
 
-    public int getIdJuego() {
-        return idJuego;
+    public Juego getJuego() {
+        return juego;
     }
 
-    public void setIdJuego(int idJuego) {
-        this.idJuego = idJuego;
+    public void setJuego(Juego juego) {
+        this.juego = juego;
     }
 
     public String getUrl() {
